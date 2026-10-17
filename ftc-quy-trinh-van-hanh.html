@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quy trình vận hành FTC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#03050f;overflow:hidden}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:50% 50%;overflow:hidden}
+.stage p{margin:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease}
+.slide.on{opacity:1}
+.flow .run{fill:none;stroke:#1f4fb5;stroke-width:3.5;stroke-dasharray:6 19;animation:run .667s linear infinite}
+.flow .rail{fill:none;stroke:#7f9fdc;stroke-width:2;stroke-opacity:.75}
+@keyframes run{to{stroke-dashoffset:-25}}
+@media (prefers-reduced-motion:reduce){.flow .run{animation:none}}
+.box{position:absolute;width:164.6px;height:57.4px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;background:#ffffff;border:2px solid;border-radius:10px;box-shadow:0 6px 16px #1d2a5a1f}
+.box .t{font-family:Lexend, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.2;text-align:center;white-space:nowrap;color:#141a33}
+.box .s{font-family:Lexend, Arial, sans-serif;font-size:14px;line-height:1.2;text-align:center;white-space:nowrap;color:#4a5378}
+.lane{position:absolute;left:60px;width:200px;display:flex;flex-direction:column;gap:2px}
+.lane .n{font-family:Lexend, Arial, sans-serif;font-size:21px;font-weight:600;line-height:1.25;white-space:nowrap;color:#141a33}
+.lane .r{font-family:Lexend, Arial, sans-serif;font-size:17px;font-weight:600;line-height:1.25;white-space:nowrap}
+.lbl{position:absolute;font-family:Lexend, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#6a7396}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+<section class="slide on" id="ftc-flow" style="background-color:#f4f6fb;background-image:radial-gradient(ellipse at 85% 8%, #3a86ff1a 0%, #3a86ff00 55%)">
+
+<svg class="flow" width="1920" height="1080" viewBox="0 0 1920 1080" style="position:absolute;top:0;left:0" aria-label="Làn quy trình và đường nối chạy liên tục giữa các bước">
+<defs><clipPath id="panel"><rect x="40" y="180" width="1805" height="875" rx="18"/></clipPath><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="15" markerHeight="15" refX="14" refY="7.5" orient="auto"><path d="M0,0.5 L14.5,7.5 L0,14.5 Z" fill="#4a78d8"/></marker></defs>
+<g clip-path="url(#panel)">
+<rect x="40" y="180" width="1805" height="120" fill="#fff4e9"/>
+<rect x="40" y="300" width="1805" height="120" fill="#ecf4ff"/>
+<rect x="40" y="420" width="1805" height="180" fill="#f5f2fe"/>
+<rect x="40" y="600" width="1805" height="180" fill="#faf8ff"/>
+<rect x="40" y="780" width="1805" height="100" fill="#e9f7f1"/>
+<rect x="40" y="880" width="1805" height="175" fill="#f5f2fe"/>
+<line x1="40" x2="1845" y1="300" y2="300" stroke="#e5e5ef" stroke-width="1"/>
+<line x1="40" x2="1845" y1="420" y2="420" stroke="#e5e5ef" stroke-width="1"/>
+<line x1="40" x2="1845" y1="600" y2="600" stroke="#e5e5ef" stroke-width="1"/>
+<line x1="40" x2="1845" y1="780" y2="780" stroke="#e5e5ef" stroke-width="1"/>
+<line x1="40" x2="1845" y1="880" y2="880" stroke="#e5e5ef" stroke-width="1"/>
+</g>
+<rect x="40.5" y="180.5" width="1804" height="874" rx="18" fill="none" stroke="#e5e5ef"/>
+<path class="rail" d="M437.1,240 L550.3,240 L550.3,328.8" marker-end="url(#ah)"/>
+<path class="rail" d="M635.1,360 L663.5,360" marker-end="url(#ah)"/>
+<path class="rail" d="M748.3,391.2 L748.3,438.8" marker-end="url(#ah)"/>
+<path class="rail" d="M833.1,470 L946.3,470 L946.3,391.2" marker-end="url(#ah)"/>
+<path class="rail" d="M946.3,328.8 L946.3,271.2" marker-end="url(#ah)"/>
+<path class="rail" d="M1031.1,240 L1144.3,240 L1144.3,438.8" marker-end="url(#ah)"/>
+<path class="rail" d="M1144.3,501.2 L1144.3,618.8" marker-end="url(#ah)"/>
+<path class="rail" d="M1144.3,681.2 L1144.3,701.8" marker-end="url(#ah)"/>
+<path class="rail" d="M1229.1,650 L1257.5,650" marker-end="url(#ah)"/>
+<path class="rail" d="M1229.1,733 L1300,733 L1300,681.2" marker-end="url(#ah)"/>
+<path class="rail" d="M1342.3,618.8 L1342.3,553 L1455.5,553" marker-end="url(#ah)"/>
+<path class="rail" d="M1540.3,584.2 L1540.3,893.8" marker-end="url(#ah)"/>
+<path class="rail" d="M1625.1,925 L1653.5,925" marker-end="url(#ah)"/>
+<path class="rail" d="M1738.3,893.8 L1738.3,764.2" marker-end="url(#ah)"/>
+<path class="rail" d="M1738.3,701.8 L1738.3,681.2" marker-end="url(#ah)"/>
+<path class="rail" d="M1738.3,618.8 L1738.3,271.2" marker-end="url(#ah)"/>
+<path class="rail" d="M1738.3,956.2 L1738.3,976.8" marker-end="url(#ah)"/>
+<path class="rail" d="M1653.5,1008 L1625.1,1008" marker-end="url(#ah)"/>
+<path class="rail" d="M1455.5,1008 L1342.3,1008 L1342.3,857.6" marker-end="url(#ah)"/>
+<path class="rail" d="M748.3,802.5 L748.3,584.2" marker-end="url(#ah)"/>
+<path class="rail" d="M437.1,553 L465.5,553" marker-end="url(#ah)"/>
+<path class="rail" d="M635.1,553 L663.5,553" marker-end="url(#ah)"/>
+<path class="rail" d="M833.1,553 L861.5,553" marker-end="url(#ah)"/>
+<path class="run" d="M437.1,240 L550.3,240 L550.3,328.8"/>
+<path class="run" d="M635.1,360 L663.5,360"/>
+<path class="run" d="M748.3,391.2 L748.3,438.8"/>
+<path class="run" d="M833.1,470 L946.3,470 L946.3,391.2"/>
+<path class="run" d="M946.3,328.8 L946.3,271.2"/>
+<path class="run" d="M1031.1,240 L1144.3,240 L1144.3,438.8"/>
+<path class="run" d="M1144.3,501.2 L1144.3,618.8"/>
+<path class="run" d="M1144.3,681.2 L1144.3,701.8"/>
+<path class="run" d="M1229.1,650 L1257.5,650"/>
+<path class="run" d="M1229.1,733 L1300,733 L1300,681.2"/>
+<path class="run" d="M1342.3,618.8 L1342.3,553 L1455.5,553"/>
+<path class="run" d="M1540.3,584.2 L1540.3,893.8"/>
+<path class="run" d="M1625.1,925 L1653.5,925"/>
+<path class="run" d="M1738.3,893.8 L1738.3,764.2"/>
+<path class="run" d="M1738.3,701.8 L1738.3,681.2"/>
+<path class="run" d="M1738.3,618.8 L1738.3,271.2"/>
+<path class="run" d="M1738.3,956.2 L1738.3,976.8"/>
+<path class="run" d="M1653.5,1008 L1625.1,1008"/>
+<path class="run" d="M1455.5,1008 L1342.3,1008 L1342.3,857.6"/>
+<path class="run" d="M748.3,802.5 L748.3,584.2"/>
+<path class="run" d="M437.1,553 L465.5,553"/>
+<path class="run" d="M635.1,553 L663.5,553"/>
+<path class="run" d="M833.1,553 L861.5,553"/>
+</svg>
+<p style="position:absolute;top:28px;left:40px;font-family:Lexend, Arial, sans-serif;font-size:22px;font-weight:600;line-height:1.25;white-space:nowrap;color:#4a5378">Hành trình một lô hàng</p>
+<div style="position:absolute;top:60px;left:40px;display:flex;flex-direction:row;gap:12px;align-items:baseline">
+  <p style="font-family:'Plus Jakarta Sans', Arial, sans-serif;font-size:46px;font-weight:700;line-height:1.2;white-space:nowrap;color:#141a33">Quy trình vận hành FTC</p>
+</div>
+<p style="position:absolute;top:122px;left:40px;width:1840px;font-family:Lexend, Arial, sans-serif;font-size:22px;line-height:1.4;white-space:nowrap;color:#4a5378">Từ lúc khách hỏi giá, chi hộ, làm thủ tục, trả hàng đến thu tiền.</p>
+<div class="lane" style="top:215.5px"><p class="n">Khách hàng</p><p class="r" style="color:#d2611a">Mail, Zalo</p></div>
+<div class="lane" style="top:335.5px"><p class="n">Kinh doanh</p></div>
+<div class="lane" style="top:485.5px"><p class="n">Phòng nghiệp vụ</p></div>
+<div class="lane" style="top:665.5px"><p class="n">Kế toán</p></div>
+<div class="lane" style="top:805.5px"><p class="n">Dữ liệu chung</p></div>
+<div class="lane" style="top:943px"><p class="n">Điều hành xe</p></div>
+<div class="box" style="top:805px;left:270px;width:1154.6px;height:50.1px;background:#e8f8f0;border-color:#0e9a6a"><p class="t">Hồ sơ lô hàng · giá cước · chi phí chuyến xe</p></div>
+<div class="box" data-k="A1" style="top:211.3px;left:270px;border-color:#d2611a"><p class="t">Khách hỏi giá</p><p class="s">Mail, Zalo</p></div>
+<div class="box" data-k="A2" style="top:211.3px;left:864px;border-color:#d2611a"><p class="t">Duyệt giá</p><p class="s">chốt đơn</p></div>
+<div class="box" data-k="A3" style="top:211.3px;left:1656px;border-color:#d2611a"><p class="t">Nhận hóa đơn</p><p class="s">thanh toán công nợ</p></div>
+<div class="box" data-k="B1" style="top:331.3px;left:468px;border-color:#2f6fe0"><p class="t">Nhập đơn hàng</p></div>
+<div class="box" data-k="B2" style="top:331.3px;left:666px;border-color:#2f6fe0"><p class="t">Khung báo giá</p><p class="s">từ thông tin đơn</p></div>
+<div class="box" data-k="B3" style="top:331.3px;left:864px;border-color:#2f6fe0"><p class="t">Gửi báo giá</p></div>
+<div class="box" data-k="C1" style="top:441.3px;left:666px;border-color:#7356d8"><p class="t">Điền giá</p><p class="s">theo bảng giá cước</p></div>
+<div class="box" data-k="C2" style="top:441.3px;left:1062px;border-color:#7356d8"><p class="t">Đề nghị chi hộ</p><p class="s">phí hãng tàu, cảng</p></div>
+<div class="box" data-k="C3" style="top:524.3px;left:1458px;border-color:#7356d8"><p class="t">Khai hải quan</p><p class="s">thủ tục nhập khẩu</p></div>
+<div class="box" data-k="G0" style="top:524.3px;left:270px;border-color:#d2611a"><p class="t">Hãng tàu</p><p class="s">ủy quyền phát lệnh</p></div>
+<div class="box" data-k="G1" style="top:524.3px;left:468px;border-color:#7356d8"><p class="t">Báo hàng đến</p><p class="s">thông báo tàu đến</p></div>
+<div class="box" data-k="G2" style="top:524.3px;left:666px;border-color:#7356d8"><p class="t">Debit note</p><p class="s">cước biển, vệ sinh</p></div>
+<div class="box" data-k="G3" style="top:524.3px;left:864px;border-color:#7356d8"><p class="t">Lệnh giao hàng</p><p class="s">gửi chủ hàng</p></div>
+<div class="box" data-k="D1" style="top:621.3px;left:1062px;border-color:#7356d8"><p class="t">Chi hộ</p><p class="s">kế toán duyệt</p></div>
+<div class="box" data-k="D2" style="top:704.3px;left:1062px;border-color:#7356d8"><p class="t">NV tự trả</p><p class="s">FTC hoàn ứng sau</p></div>
+<div class="box" data-k="D3" style="top:621.3px;left:1260px;border-color:#7356d8"><p class="t">Ủy nhiệm chi</p><p class="s">gửi hãng tàu</p></div>
+<div class="box" data-k="D4" style="top:704.3px;left:1656px;border-color:#7356d8"><p class="t">Lên công nợ</p><p class="s">tách riêng chi hộ</p></div>
+<div class="box" data-k="D5" style="top:621.3px;left:1656px;border-color:#7356d8"><p class="t">HĐ thu khách</p><p class="s">không gồm chi hộ</p></div>
+<div class="box" data-k="F1" style="top:896.3px;left:1458px;border-color:#7356d8"><p class="t">Xếp xe trả hàng</p><p class="s">kế hoạch, tài xế</p></div>
+<div class="box" data-k="F2" style="top:896.3px;left:1656px;border-color:#7356d8"><p class="t">Giao hàng</p><p class="s">tận kho khách</p></div>
+<div class="box" data-k="F3" style="top:979.3px;left:1656px;border-color:#7356d8"><p class="t">Chi phí chuyến</p><p class="s">dầu, cầu đường, lốp</p></div>
+<div class="box" data-k="F4" style="top:979.3px;left:1458px;border-color:#7356d8"><p class="t">Lãi từng chuyến</p><p class="s">doanh thu trừ chi phí</p></div>
+<p class="lbl" style="top:219px;left:1050.6px">Chốt đơn</p>
+<p class="lbl" style="top:583px;left:1153.3px">Chuyển kế toán</p>
+<p class="lbl" style="top:682px;left:1153.3px">hoặc</p>
+<p class="lbl" style="top:585px;left:1351.3px">Đã thanh toán</p>
+<p class="lbl" style="top:812px;left:1549.3px">Đã thông quan</p>
+<p class="lbl" style="top:852px;left:1747.3px">Đã giao</p>
+<p class="lbl" style="top:395px;left:1747.3px">Thu khách</p>
+<p class="lbl" style="top:668px;left:757.3px">Dữ liệu cho cả ba chứng từ</p>
+<p class="lbl" style="top:950px;right:586.7px;text-align:right">Lưu theo chuyến</p>
+</section>
+</div>
+<script>
+(function(){
+  var st=document.getElementById('stage');
+  function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform='translate(-50%,-50%) scale('+s+')';}
+  addEventListener('resize',fit);fit();
+})();
+</script>
+</body>
+</html>
